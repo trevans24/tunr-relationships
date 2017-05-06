@@ -18,3 +18,6 @@ module.exports.models = {
 
 Song.belongsTo(Artist);
 Artist.hasMany(Song);
+
+Artist.belongsTo(Manager);
+Manager.hasMany(Artist);

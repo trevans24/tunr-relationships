@@ -37,6 +37,13 @@ var managerCreate = function() {
     email: 'rbobby@gmail.com',
     office_number: '516-877-0304',
     cell_phone_number: '718-989-1231'
+	})
+	.then((artist)=>{
+		console.log("artist", artist);
+		artist.forEach((artist)=>{
+			artist.managerId = manager.id;
+		});
+		DB.Manager.bulkCreate();
 	});
 };
 
@@ -49,8 +56,8 @@ var songCreate = function() {
 	});
 };
 
-artistCreate()
-.then(managerCreate)
+managerCreate()
+.then(artistCreate)
 .then(songCreate)
 .then(function() {
 	process.exit();
